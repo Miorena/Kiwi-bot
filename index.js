@@ -8,11 +8,11 @@ const {
   SlashCommandBuilder,
   Collection,
   MessageFlags,
-	EmbedBuilder,
-	ModalBuilder,
-	TextInputBuilder,
-	TextInputStyle,
-	ActionRowBuilder,
+  EmbedBuilder,
+  ModalBuilder,
+  TextInputBuilder,
+  TextInputStyle,
+  ActionRowBuilder,
 } = require("discord.js");
 const fs = require("node:fs");
 const path = require("node:path");
@@ -102,22 +102,20 @@ client.on("interactionCreate", async (interaction) => {
         });
       }
     }
+  } else if (interaction.isButton) {
+    if (interaction.customId === "ping_replay") {
+      const newPing = interaction.client.ws.ping;
+
+      const updatedPingEmbed = new EmbedBuilder()
+        .setColor(0x57f287)
+        .setTitle("Re-Ping 🏓")
+        .setDescription(`Nouelle latence: ${newPing}ms.`)
+        .setTimestamp()
+        .setFooter({ text: "キウイ Labs - Replay" });
+
+      await interaction.update({ embeds: [updatedPingEmbed] });
+    }
   }
-
-	else if (interaction.isButton) {
-		if (interaction.customId === "ping_replay") {
-			const newPing = interaction.client.ws.ping;
-
-			const updatedPingEmbed = new EmbedBuilder()
-				.setColor(0x57f287)
-				.setTitle("Re-Ping 🏓")
-				.setDescription(`Nouelle latence: ${newPing}ms.`)
-				.setTimestamp()
-				.setFooter({ text: "キウイ Labs - Replay" });
-
-				await interaction.update({ embeds: [updatedPingEmbed] });
-		}
-	}
 });
 
 // Connexion du bot grace au Token recupere sur le portail

@@ -109,7 +109,7 @@ client.on("interactionCreate", async (interaction) => {
       const updatedPingEmbed = new EmbedBuilder()
         .setColor(0x57f287)
         .setTitle("Re-Ping 🏓")
-        .setDescription(`Nouelle latence: ${newPing}ms.`)
+        .setDescription(`Nouvelle latence: ${newPing}ms.`)
         .setTimestamp()
         .setFooter({ text: "キウイ Labs - Replay" });
 

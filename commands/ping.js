@@ -9,7 +9,7 @@ const {
 module.exports = {
   data: new SlashCommandBuilder()
     .setName("ping")
-    .setDescription("Répond avec Pong! intercatif 🏓"),
+    .setDescription("Répond avec Pong! interactif 🏓"),
 
   async execute(interaction) {
     const pingEmbed = new EmbedBuilder()

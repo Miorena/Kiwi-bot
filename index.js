@@ -102,7 +102,7 @@ client.on("interactionCreate", async (interaction) => {
         });
       }
     }
-  } else if (interaction.isButton) {
+  } else if (interaction.isButton()) {
     if (interaction.customId === "ping_replay") {
       const newPing = interaction.client.ws.ping;
 
